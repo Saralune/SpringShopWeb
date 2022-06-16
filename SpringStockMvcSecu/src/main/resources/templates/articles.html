@@ -1,71 +1,74 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th = "http://thymeleaf.org"
-				xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout"
-				layout:decorate = "layout">
-	<head>
-		<meta charset="UTF-8">
-		<!-- <meta charset="ISO-8859-1"> -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<!-- Liens CSS, un pour Eclipse, un pour thymeleaf -->
-		<link rel="stylesheet" href="../static/CSS/bootstrap.min.css"
-			th:href="@{CSS/bootstrap.min.css}">
-		
-		<title>Mes articles, toussa.</title>
-		</head>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout">
+<head>
+<meta charset="UTF-8">
+<!-- <meta charset="ISO-8859-1"> -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<body>
-	
-		<div layout:fragment="content">
-			<h1>Imothep.</h1>
-	
-			<p></p>
-		
-			<div class="container">
-			
-				<h2>Liste d'articles :</h2>		
-				
-				<form th:action="@{/index}" method="get">
-					<label>Keyword</label>
-					<input type="text" name="keyword" th:value="${keyword}">
-					<button type="submit" class="btn btn-primary">Search</button>
-				</form>
-			
-				<table class="table">
-					<tr>
-						<th>ID</th>
-						<th>DESCRIPTION</th>
-						<th>PRICE</th>
-						<th></th>
-						<th></th>
-					</tr>
-		
-					<tr th:each="a:${listArticle}">
-						<td th:text="${a.id}">ID</td>
-						<td th:text="${a.description}">DESCRIPTION</td>
-						<td th:text="${a.price}">PRICE</td>
-		
-						<td><a class="btn btn-danger"
-							th:href="@{/delete(id=${a.id}, page=${currentPage}, keyword=${keyword})}">Delete</a>
-						</td>
-					</tr>
-				</table>
-		
-				<ul class="pagination">
-		
-					<!-- th:href -> active la balise ///// th:each -> chaque indice de notre tableau de pages-->
-					<li class="page-item"
-						th:class="${currentPage == status.index} ? 'active' : ''"
-						th:each="page, status:${pages}">
-						<!-- th:href -> lien vers un indice/page //// th:text : afficher l'indice du tableau-->
-						<a th:href="@{/index(page=${status.index}, keyword=${keyword})}"
-						th:text="${status.index}" class="page-link"></a>
-					</li>
-				</ul>
+<!-- Liens CSS, un pour Eclipse, un pour thymeleaf -->
+<link rel="stylesheet" href="../static/CSS/bootstrap.min.css"
+	th:href="@{CSS/bootstrap.min.css}">
+
+<title>Mes articles, toussa.</title>
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+		<div class="container">
+
+			<div class="text-webkit-center">
+				<div class="card mb-3 text-center"
+					style="max-width: 29rem;">
+					<div class="card-header">
+						<h2>Liste d'articles :</h2>
+					</div>
+					<div class="card-body">
+						<form th:action="@{/index}" method="get">
+							<label>Keyword</label> <input type="text" name="keyword"
+								th:value="${keyword}">
+							<button type="submit" class="btn btn-search">Search</button>
+						</form>
+					</div>
+				</div>
 			</div>
-			
+
+			<table class="table">
+				<tr>
+					<th>ID</th>
+					<th>DESCRIPTION</th>
+					<th>PRICE</th>
+					<th></th>
+				</tr>
+
+				<tr th:each="a:${listArticle}">
+					<td th:text="${a.id}">ID</td>
+					<td th:text="${a.description}">DESCRIPTION</td>
+					<td th:text="${a.price}">PRICE</td>
+
+					<td><a class="btn btn-danger"
+						th:href="@{/delete(id=${a.id}, page=${currentPage}, keyword=${keyword})}">Delete</a>
+					</td>
+				</tr>
+			</table>
+
+			<ul class="pagination">
+
+				<!-- th:href -> active la balise ///// th:each -> chaque indice de notre tableau de pages-->
+				<li class="page-item"
+					th:class="${currentPage == status.index} ? 'active' : ''"
+					th:each="page, status:${pages}">
+					<!-- th:href -> lien vers un indice/page //// th:text : afficher l'indice du tableau-->
+					<a th:href="@{/index(page=${status.index}, keyword=${keyword})}"
+					th:text="${status.index}" class="page-link"></a>
+				</li>
+			</ul>
 		</div>
-	
-	</body>
+
+	</div>
+
+</body>
 </html>

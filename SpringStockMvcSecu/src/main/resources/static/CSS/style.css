@@ -10,3 +10,30 @@ a.navbar-brand{
 	font-weight: bold;
 	margin: 20px;
 }
+
+nav{
+	height: 50px;
+}
+
+.search_article{
+	width: 70%;
+	margin-top: 15px;
+}
+
+.btn-search{
+	background-color: #00205b !important;
+	color: white !important;
+}
+
+.text-webkit-center{
+	text-align: -webkit-center;
+	margin-top: 15px;
+}
+
+.table{
+	border: 1px solid black;
+}
+
+.add-article{
+	width : 45rem !important;
+}

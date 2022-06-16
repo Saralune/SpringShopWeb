@@ -18,23 +18,24 @@
 <body>
 	<div layout:fragment="content">
 		<form th:action="@{/save}" method="post">
-			<h2>Saisir un nouvel article :</h2>
+			<h2 class="">Saisir un nouvel article :</h2>
 
-			<div class="form-group">
-				<label class="control-label">Description :</label> 
-				<!--  th:value="${article.description}" -->
-				<input class="from-control" type="text" name="description" th:value="${article.description}">
-				<div class="alert alert-warning" role="alert" th:errors="${article.description}"></div>
+			<div class="container add-article">
+				<div class="form-floating mb-3">
+					<input class="form-control" id="floatingDesc" type="text" name="description" th:value="${article.description}">
+					<label for="floatingDesc">Description :</label> 
+					<div class="alert alert-warning" role="alert" th:errors="${article.description}"></div>
+				</div>
+	
+				<div class="form-floating mb-3">
+					<input class="form-control" id="floatingPrice" type="number" name="price" th:value="${article.price}">
+					<label for="floatingPrice">Price :</label> 
+					<div class="alert alert-warning" role="alert" th:errors="${article.price}"></div>
+				</div>
+				
+				<button type="submit" class="btn btn-primary">Save</button>
 			</div>
-
-			<div class="form-group">
-				<label class="control-label">Price :</label> 
-				<input class="from-control" type="number" name="price" th:value="${article.price}">
-				<div class="alert alert-warning" role="alert" th:errors="${article.price}"></div>
-					
-			</div>
-
-			<button type="submit" class="btn btn-primary">Save</button>
+			
 		</form>
 
 	</div>
