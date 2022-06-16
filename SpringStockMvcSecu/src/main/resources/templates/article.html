@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout">
+<head>
+<meta charset="UTF-8">
+<!-- <meta charset="ISO-8859-1"> -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Liens CSS, un pour Eclipse, un pour thymeleaf -->
+<link rel="stylesheet" href="../static/CSS/bootstrap.min.css"
+	th:href="@{CSS/bootstrap.min.css}">
+
+<title>Saisir un article</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<form th:action="@{/save}" method="post">
+			<h2>Saisir un nouvel article :</h2>
+
+			<div class="form-group">
+				<label class="control-label">Description :</label> 
+				<!--  th:value="${article.description}" -->
+				<input class="from-control" type="text" name="description" th:value="${article.description}">
+				<div class="alert alert-warning" role="alert" th:errors="${article.description}"></div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label">Price :</label> 
+				<input class="from-control" type="number" name="price" th:value="${article.price}">
+				<div class="alert alert-warning" role="alert" th:errors="${article.price}"></div>
+					
+			</div>
+
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+
+	</div>
+</body>
+</html>

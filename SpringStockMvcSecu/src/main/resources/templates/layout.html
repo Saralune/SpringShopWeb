@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://thymeleaf.org"
+				xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout">
+				
+	<head>
+		<meta charset="UTF-8">
+		<!-- <meta charset="ISO-8859-1"> -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Liens CSS, un pour Eclipse, un pour thymeleaf -->
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="../static/CSS/bootstrap.min.css"
+			th:href="@{CSS/bootstrap.min.css}">
+		<link rel="stylesheet" href="../static/CSS/style.css"
+			th:href="@{CSS/style.css}">
+		
+		<!-- Perso CSS -->
+		<title>Mon site qui déchire.</title>
+	</head>
+	
+	<body>
+		<nav class="nav-bg d-flex flex-row align-items-center">
+			<div>
+				<a class="navbar-brand" href="#">SuperSite</a>
+			</div>
+		
+			<ul class="nav">
+				
+				<li class="nav-item">
+				    <a class="nav-link active" aria-current="page" th:href="@{/index}">Accueil</a>
+				</li>
+				
+				<li class="nav-item">
+				  	<a class="nav-link" th:href="@{/article}">Article</a>
+				</li>
+				
+<!--  			<li class="nav-item">
+				  	<a class="nav-link" href="#">Catégories</a>
+				</li>-->	
+				
+			</ul>
+		</nav>
+		
+		<section layout:fragment="content"></section>
+
+	</body>
+</html>

@@ -1,0 +1,12 @@
+.nav-bg{
+	background-color: #00205b;
+}
+
+a.nav-link, a.navbar-brand {
+		color : white !important;
+}
+
+a.navbar-brand{
+	font-weight: bold;
+	margin: 20px;
+}
