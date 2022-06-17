@@ -12,12 +12,7 @@ a.navbar-brand{
 }
 
 nav{
-	height: 50px;
-}
-
-.search_article{
-	width: 70%;
-	margin-top: 15px;
+	height: 70px;
 }
 
 .btn-search{
@@ -25,10 +20,6 @@ nav{
 	color: white !important;
 }
 
-.text-webkit-center{
-	text-align: -webkit-center;
-	margin-top: 15px;
-}
 
 .table{
 	border: 1px solid black;
@@ -36,4 +27,15 @@ nav{
 
 .add-article{
 	width : 45rem !important;
+}
+
+li{
+	list-style: none;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+ul{
+	margin: 0 !important;
+	padding: 10px !important;
 }

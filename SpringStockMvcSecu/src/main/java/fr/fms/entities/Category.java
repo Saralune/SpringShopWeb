@@ -33,4 +33,12 @@ public class Category implements Serializable {
 	@OneToMany(mappedBy = "category")
 	private Collection<Article> articles; //Une catégorie est liée à plusieurs articles
 
+	/**
+	 * @param id
+	 * @param name
+	 */
+	public Category(Long id, String name) {
+		this.id = id;
+		this.name = name;
+	}	
 }

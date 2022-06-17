@@ -3,6 +3,8 @@
  */
 package fr.fms.web;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +49,7 @@ public class ArticleController {
 
 		model.addAttribute("keyword", kw);
 		
-		return "articles"; //cette méthode retourne au dispacterServlet une vue
+		return "articles/articles"; //cette méthode retourne au dispacterServlet une vue
 	}
 	
 	@GetMapping("/delete")
@@ -61,7 +63,7 @@ public class ArticleController {
 	@GetMapping("/article")
 	public String article(Model model) {
 		model.addAttribute("article", new Article());
-		return "article";
+		return "articles/article";
 	}
 	
 	@PostMapping("/save")
@@ -71,4 +73,14 @@ public class ArticleController {
 		articleRepository.save(article);
 		return "redirect:/index";
 	}
+	
+//	@GetMapping("/displayArticlesByCat")
+//	public String displayArticlesByCat(Model model, @RequestParam(name="page", defaultValue = "0") int page,
+//								@RequestParam(name="category", defaultValue = "0") Long idCat){
+//		Page<Article> articles = articleRepository.findAllByCategoryId(idCat, PageRequest.of(page, 5));
+//		
+//		model.addAttribute("listArticlesByCat", articles);
+//		
+//		return "articles";
+	//}
 }

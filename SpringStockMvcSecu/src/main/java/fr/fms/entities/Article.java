@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -29,4 +30,7 @@ public class Article implements Serializable {
 	
 	@DecimalMin(value = "10", message="Le prix doit être supérieur à 10€.")
 	private double price;
+	
+	@ManyToOne
+	private Category category;
 }
